@@ -47,7 +47,7 @@ jobs:
       run: git clone https://github.com/rahulrathore44/Trx2Excel.git
     
     - name: TRX 2 Excel - Produce Excel
-      run: Trx2Excel/Trx2Excel/bin/Debug/Trx2Excel.exe D:\a\ConsoleUnitTests\ConsoleUnitTests\TestResults\TestLog.trx ./MyLibrary/bin/Debug/netstandard2.0/results.xlsx
+      run: Trx2Excel/Trx2Excel/bin/Debug/Trx2Excel.exe ./MyLibraryTests/bin/Debug/TestLog.trx ./MyLibrary/bin/Debug/netstandard2.0/results.xlsx
       
     - name: Create Release
       id: create_release
