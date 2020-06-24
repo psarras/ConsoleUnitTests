@@ -26,7 +26,7 @@ namespace MyLibraryTests
 
             var result = MyCalculations.Add(a, b);
 
-            Assert.IsTrue(result > 0);
+            Assert.IsTrue(result < 0);
         }
 
     }
