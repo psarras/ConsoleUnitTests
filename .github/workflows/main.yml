@@ -50,13 +50,7 @@ jobs:
       run: Trx2Excel/Trx2Excel/bin/Debug/Trx2Excel.exe D:/a/ConsoleUnitTests/ConsoleUnitTests/TestResults/TestLog.trx ./MyLibrary/bin/Debug/netstandard2.0/results.xlsx
     
     - name: Zip Release
-      uses: TheDoctor0/zip-release@v0.3.0
-      with:
-        # Filename for archive
-        filename: release.zip
-        # Base path for archive files
-        path: ./MyLibrary/bin/Debug/netstandard2.0/
-        directory: ./MyLibrary/bin/Debug/netstandard2.0/
+      run: Compress-Archive -Path ./MyLibrary/bin/Debug/netstandard2.0/ ./MyLibrary/bin/Debug/netstandard2.0/Release.zip
 
     - name: Create Release
       id: create_release
@@ -75,8 +69,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./MyLibrary/bin/Debug/netstandard2.0/release.zip
-        asset_name: release.zip
+        asset_path: ./MyLibrary/bin/Debug/netstandard2.0/Release.zip
+        asset_name: Release.zip
         asset_content_type: application/zip
       
       
