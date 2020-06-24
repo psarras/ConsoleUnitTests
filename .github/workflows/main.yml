@@ -38,7 +38,7 @@ jobs:
       run: msbuild MyLibrary.sln
     
     - name: Run Tests
-      run: vstest.console.exe ./MyLibraryTests/bin/Debug/MyLibraryTests.dll
+      run: vstest.console.exe ./MyLibraryTests/bin/Debug/MyLibraryTests.dll /Logger:trx
       
     - name: Create Release
       id: create_release
