@@ -38,7 +38,7 @@ jobs:
       run: msbuild MyLibrary.sln
     
     - name: Run Tests
-      run: vstest.console.exe ./MyLibraryTests/bin/Debug/MyLibraryTests.dll /Logger:trx
+      run: vstest.console.exe ./MyLibraryTests/bin/Debug/MyLibraryTests.dll /Logger:trx;LogFileName=TestLog.trx
     
     - name: TRX 2 Excel - CD
       run: cd ../
@@ -47,7 +47,7 @@ jobs:
       run: git clone https://github.com/rahulrathore44/Trx2Excel.git
     
     - name: TRX 2 Excel - Produce Excel
-      run: Trx2Excel/Trx2Excel/bin/Debug/Trx2Excel.exe D:\a\ConsoleUnitTests\ConsoleUnitTests\TestResults\runneradmin_*.rtx ./MyLibrary/bin/Debug/netstandard2.0/results.xlsx
+      run: Trx2Excel/Trx2Excel/bin/Debug/Trx2Excel.exe D:\a\ConsoleUnitTests\ConsoleUnitTests\TestResults\TestLog.trx ./MyLibrary/bin/Debug/netstandard2.0/results.xlsx
       
     - name: Create Release
       id: create_release
