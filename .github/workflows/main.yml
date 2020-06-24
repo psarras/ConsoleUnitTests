@@ -38,7 +38,7 @@ jobs:
       run: msbuild MyLibrary.sln
     
     - name: Run Tests
-      run: vstest.console.exe ./MyLibraryTests/bin/Debug/MyLibraryTests.dll /Logger:trx;LogFileName=./MyLibraryTests/bin/Debug/TestLog.trx
+      run: vstest.console.exe ./MyLibraryTests/bin/Debug/MyLibraryTests.dll /Logger:"trx;LogFileName=./MyLibraryTests/bin/Debug/TestLog.trx"
     
     - name: TRX 2 Excel - CD
       run: cd ../
